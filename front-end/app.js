@@ -7,6 +7,7 @@ const port = 3001
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(express.static('./public'))
 
 app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
