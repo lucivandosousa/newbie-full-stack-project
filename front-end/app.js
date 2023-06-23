@@ -1,5 +1,6 @@
-import express from 'express'
+import express, { json, response } from 'express'
 import { engine } from 'express-handlebars'
+import fetch from 'node-fetch'
 
 const app = express()
 
@@ -14,7 +15,9 @@ app.set('view engine', 'handlebars')
 app.set('views', './views')
 
 app.get('/', (req, res) => {
-  res.render('home')
+  fetch('http://localhost:3000/clientes')
+  .then(response => response.json())
+  .then(clientes => res.render('home', {clientes}))
 })
 
 app.listen(port)
