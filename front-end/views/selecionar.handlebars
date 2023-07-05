@@ -1,0 +1,14 @@
+<div class="container">
+  <form action="/cadastrar" method="post">
+    <div class="icon">
+      <img src="../imgs/icone.png">
+    </div>
+    
+    <input type="text" name="nome" value="{{cliente.nome}}" placeholder="Nome" class="form-control">
+    <input type="text" name="idade" value="{{cliente.idade}}" placeholder="Idade" class="form-control">
+    <input type="submit" value="Editar" class="btn btn-warning btnEditar">
+
+    <a href="#" class="btn btn-danger">Excluir</a>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
