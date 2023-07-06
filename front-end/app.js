@@ -40,4 +40,23 @@ app.post('/cadastrar', (req, res) => {
   .then(res.redirect('/'))
 })
 
+app.post('/editar', (req, res) => {
+  const {id, nome, idade} = req.body
+  const dados = {"nome": nome, "idade": idade}
+
+  fetch(`http://localhost:3000/clientes/${id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(dados) 
+  })
+  .then(res.redirect('/'))
+})
+
+app.get('/remover/:id', (req, res) => {
+  const {id} = req.params
+
+  fetch(`http://localhost:3000/clientes/${id}`, {method: 'DELETE'})
+  .then(res.redirect('/'))
+})
+
 app.listen(port)
